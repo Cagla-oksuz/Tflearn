@@ -54,8 +54,30 @@ In the second complementary layer, an output layer with an output is implemented
 In this study, LeakyRelu is set to a=1. The DNN function is used to unify the network.
 Five convolution layers (intermediate layers) were used. And the activation function of all of them has been determined as the tanh given in the equation.
 
+![1](https://user-images.githubusercontent.com/61979226/137432375-5f6adc02-52f2-4188-820c-42fe1c55fca8.jpg)
 
+## Training
 
+It is the process of giving all the data in the epoch dataset to the system once. The number of epochs for training is set to 40.
+The validation_set value determines the validation set. The model can see the training set's tags directly, but not the validation_set's tags directly. 
+The goal is to understand how well the algorithm works during training.
+The value specified as the validation_set value tells the fit function how much of the training data should be used for validation.
+In this study, a value of 0.001 was used, which indicates that ‰1 of a total of 20242 images should be used for validation.
+In this study, 21 images were used for validation.
+In order to observe the metrics, show_metric was set as True, in the run_id section, the name of the created model was given and training was started.
+Although there are 20242 training data, the number of iterations is seen as 20217 since the validation value was determined as 0.001.
+The validation set number is taken from the training data.
+
+At the end of the training, the loss (loss, mean squared error) decreased to 0.03391 and
+val_loss (mean squared error for validation data) to 0.9524.
+binary_acc (training accuracy) increased to 0.8976.
+It is seen that the error has decreased to an acceptable value such as 3%.
+
+## Result
+
+The model with CNN structure consisting of 5 convolutional layers and 2 fully connected layers used in this study was trained with images containing 20242 pictures of cats and dogs, and a low mean square error value of 3% was obtained at the end of the training. 
+In response to this error value, 89% accuracy was reached for the training data, while the same value was 90% for the validation data. 
+At the end of the training, the network developed with 6000 images that were not included in the training data was tested and a high accuracy level of 86.6% was reached.
 
 
 
